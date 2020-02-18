@@ -13,13 +13,15 @@ def CounterView(request, id):
         # import ipdb; ipdb.set_trace()                                     
     return render(request, 'counter/index.html', {'counter': counter})
 
-# from django.http import JsonResponse
 
-# @csrf_exempt
-# def add_value(request, id):
-#     # count = forms.ExtraCounter()
-#     ccc = Counter.objects.get(id=id)
-#     ccc.num += 1
-#     ccc.save()
-#     return JsonResponse({'new_object': ccc.num})      
+
+from django.http import JsonResponse
+@csrf_exempt
+def add_value(request, id):
+    counter = Counter.objects.get(id=id)
+    counter.num += 1
+    counter.save()
+    return JsonResponse({'new_object': counter.num})   
     
+def homepage(request):
+    return render(request, 'counter/index2.html')
