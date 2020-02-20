@@ -3,39 +3,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous">
-</script>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous">
+  </script>
+</head>
 <body>
 
 <div class="flex-container">
-    <form action="{% url 'count' id=1 %}", method="POST">
-        <div>
-            <h1>{{ counter }}</h1>
-            <button id='apireq'type="submit">add</button>
-        </div>
-    </form>
+  <form method="POST">
+    <div>
+      <h1 id="h1">{{ new_object }}</h1>
+      <button id="btn" type="submit">add</button>
+    </div>
+  </form>
 </div>
 
 <script>
-    $('#btn').click(function() {
-        // alert("success");
-        // $( "#target" ).click();
-        $.ajax({
-             url : "http://localhost:8000/add/1/",
-             dataType: "json",
-             success : function (data) {
-                      $('#first_name').text( data[0].first_name);
-                      
-                    }
-                 });
-             });
+  $(document).ready(function () {
+    $.ajax({
+      url: "{% url 'add' id=1 %}",  
+      success: function(data) {
+        $('#h1').text( data.new_object);
+      }
+    });
+  });
+
+  $(document).ready(function () {
+    $('.btn').click( function() {
+      $.ajax({
+        url : "{% url 'add' id=1 %}",
+        success : function (data) {
+          data.new_object;
+        }
+      });
+    });
+  });
 </script>
-
-
 </body>
 </html>

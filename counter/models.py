@@ -8,4 +8,3 @@ class Counter(models.Model):
 
     def __str__(self):
         return "{}".format(str(self.num))
-    

@@ -3,38 +3,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous">
-</script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+		<script 
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+      crossorigin="anonymous">
+    </script>
 </head>
 <body>
-
-
-<div class="flex-container">
-    <form action="{% url 'count' id=1 %}", method="POST">
-        <div>
-            <h1>{{ counter }}</h1>
-            <button id="btn" type="submit">add</button>
-        </div>
+  <div class="flex-container">
+    <form action="{% url 'count' id=1 %}" , method="POST">
+      <div>
+        <h1>{{ counter }}</h1>
+        <button id="btn" type="submit">add</button>
+      </div>
     </form>
-</div>
+  </div>
 
-<script>
-    $(document).ready(function(){
-        $('button').click(function() {
-            alert("success");
-            // alert("html"+ $("#test").html());
-            // alert("Value: " + $("#test").val());
-            // $("*").hide();
-            // $( this ).slideUp();
-            // $( "#target" ).click();
-            // $( "p" ).click();
-        });
+  <script>
+    $(document).ready(function () {
+      $('button').click(function () {
+        alert("success");
+        // alert("html"+ $("#test").html());
+        // alert("Value: " + $("#test").val());
+        // $("*").hide();
+        // $( this ).slideUp();
+        // $( "#target" ).click();
+        // $( "p" ).click();
+      });
     });
-</script>
+	</script>
 </body>
 </html>
