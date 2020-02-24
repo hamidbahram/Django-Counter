@@ -7,9 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
   <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous">
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
   </script>
 </head>
 <body>
@@ -23,16 +21,16 @@
 
 <script>
   // show number
-  // $(document).ready(function () {
-  //   $.ajax({
-  //     url: "{% url 'add' id=1 %}",  
-  //     success: function(data) {
-  //       $('#num').text(data.new_object);
-  //     }
-  //   });
-  // });
+  $(document).ready(function () {
+    $.ajax({
+      url: "{% url 'add' id=1 %}",  
+      success: function(data) {
+        $('#num').text(data.new_object);
+      }
+    });
+  });
 
-  // show number & update number
+  // update number
   $(document).ready(function () {
     $('#btn').click( function() {
       $.ajax({
