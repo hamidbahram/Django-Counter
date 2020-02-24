@@ -1,6 +1,6 @@
-from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from .models import Counter
 from . import forms
 
@@ -26,4 +26,5 @@ def add_value(request, id):
     counter = Counter.objects.get(id=id)
     counter.num += 1
     counter.save()
+    # import ipdb; ipdb.set_trace()
     return JsonResponse({'new_object': counter.num})

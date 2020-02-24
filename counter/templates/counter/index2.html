@@ -15,30 +15,31 @@
 <body>
 
 <div class="flex-container">
-  <form method="POST">
     <div>
-      <h1 id="h1">{{ new_object }}</h1>
+      <h1 id="num">{{ new_object }}</h1>
       <button id="btn" type="submit">add</button>
     </div>
-  </form>
 </div>
 
 <script>
-  $(document).ready(function () {
-    $.ajax({
-      url: "{% url 'add' id=1 %}",  
-      success: function(data) {
-        $('#h1').text( data.new_object);
-      }
-    });
-  });
+  // show number
+  // $(document).ready(function () {
+  //   $.ajax({
+  //     url: "{% url 'add' id=1 %}",  
+  //     success: function(data) {
+  //       $('#num').text(data.new_object);
+  //     }
+  //   });
+  // });
 
+  // show number & update number
   $(document).ready(function () {
-    $('.btn').click( function() {
+    $('#btn').click( function() {
       $.ajax({
         url : "{% url 'add' id=1 %}",
-        success : function (data) {
-          data.new_object;
+        success : function(response) {
+          console.log(response.new_object)
+          $('#num').text(response.new_object)
         }
       });
     });
