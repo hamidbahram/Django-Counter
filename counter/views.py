@@ -27,4 +27,5 @@ def add_value(request, id):
     counter.num += 1
     counter.save()
     # import ipdb; ipdb.set_trace()
-    return JsonResponse({'new_object': counter.num})
+    data = {'new_object': counter.num}
+    return JsonResponse(data)
