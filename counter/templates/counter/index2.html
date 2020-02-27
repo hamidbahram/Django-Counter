@@ -31,8 +31,8 @@
   });
 
   // update number
-  $(document).ready(function () {
-    $('#btn').click( function() {
+  $(document).ready(function() {
+    $('#btn').click(function() {
       $.ajax({
         url : "{% url 'add' id=1 %}",
         success : function(response) {
@@ -42,6 +42,21 @@
       });
     });
   });
+  
+  // change color button
+  clicked = true;
+  $('#btn').on('click', function(){
+    if(clicked){
+      $(this).css('background-color', '#00d1cd');
+      clicked  = false;
+      console.log(clicked)
+    } else {
+      $(this).css('background-color', '#f30067');
+      clicked  = true;
+      console.log(clicked)
+    }   
+  });
+
 </script>
 </body>
 </html>
