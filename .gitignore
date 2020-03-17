@@ -137,6 +137,8 @@ local_settings.py
 #migration files
 migrations/
 
+*.scss
+
 .vscode/
 
 #media files

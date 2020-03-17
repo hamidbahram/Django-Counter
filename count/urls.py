@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from counter import views
+# from rest_framework import routers
 
+
+# router = routers.DefaultRouter()                      
+# router.register(r'counters', views.CounterView, 'counters')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('counter.urls'))
+    path('', include('counter.urls')),
+    # path('api/', include('counter'))
 ]  
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
