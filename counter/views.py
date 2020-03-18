@@ -37,7 +37,7 @@ class CounterListView(generics.ListAPIView):
     queryset = Counter.objects.all()   
 
 
-class CounterEditView(generics.RetrieveUpdateAPIView):       
+class CounterEditView(generics.RetrieveUpdateAPIView):  
     serializer_class = CounterSerializer 
-    queryset = Counter.objects.all()   
+    queryset = Counter.objects.all()  
     lookup_field = 'id'
