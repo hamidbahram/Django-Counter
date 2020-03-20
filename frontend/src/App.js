@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Counter extends Component {
   state = {
@@ -14,11 +14,19 @@ class Counter extends Component {
   //     this.setState({ count: this.state.count + 1 });
   //   }
 
+  // UpdateCounter = () => {
+  //   axios.put('http://localhost:8000/api/edit/1/', {
+  //     num: 506
+  //   })
+  //   .then(res => console.log(res))
+  // };
+
   UpdateCounter = () => {
-    axios.put('http://localhost:8000/api/edit/1/', {
-      num: 506
-    })
-    .then(res => console.log(res))
+    fetch('http://localhost:8000/add/1/')
+    .then((response) => response.json())
+    .then(counter => {
+        console.log(counter)
+    });
   };
 
   componentDidMount() {
