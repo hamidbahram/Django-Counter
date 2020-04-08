@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class Counter extends Component {
   state = {
-    count: []
+    count: 0
   }
   
   // handelIncrement = (product) => {
@@ -25,7 +25,10 @@ class Counter extends Component {
     fetch('http://localhost:8000/add/1/')
     .then((response) => response.json())
     .then(counter => {
-        console.log(counter)
+      console.log(counter)
+      if (counter.new_object === this.state.count + 1){
+        this.setState({count : counter.new_object })
+      }
     });
   };
 
@@ -33,7 +36,7 @@ class Counter extends Component {
     fetch('http://127.0.0.1:8000/api/')
     .then((response) => response.json())
     .then(counter => {
-      this.setState({ count: counter });
+      this.setState({ count: counter[0].num });
     });
   }
   
@@ -51,11 +54,9 @@ render() {
   return (
     <div>
       <p>
-        {this.state.count.map(number => 
-          <span style={{fontSize:'30px'}} className={'badge badge-primary m-2'} key={number.id}>{number.num}</span>
-        )} 
+        <span style={{fontSize:'30px'}} className={'badge badge-primary m-2'}>{this.state.count}</span> 
       </p>
-      <button onClick={() => this.UpdateCounter()} className={'btn btn-warning m-2'}>add</button>
+      <button onClick={this.UpdateCounter} className={'btn btn-warning m-2'}>add</button>
     </div>
     )
   }
