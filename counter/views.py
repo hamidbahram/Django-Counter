@@ -32,6 +32,11 @@ def add_value(request, id):
     data = {'new_object': counter.num}
     return JsonResponse(data)
 
+def show_num(request, id):
+    counter = Counter.objects.get(id=id)
+    data = {'new_object': counter.num}
+    return JsonResponse(data)
+
 class CounterListView(generics.ListAPIView):       
     serializer_class = CounterSerializer 
     queryset = Counter.objects.all()   

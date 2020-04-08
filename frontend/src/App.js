@@ -33,9 +33,19 @@ class Counter extends Component {
     fetch('http://127.0.0.1:8000/api/')
     .then((response) => response.json())
     .then(counter => {
-        this.setState({ count: counter });
+      this.setState({ count: counter });
     });
   }
+  
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   if (this.state.count !== prevState.count){
+  //     fetch('http://localhost:8000/show/1/')
+  //     .then((response) => response.json())
+  //     .then((counter) => this.setState({count: counter}));
+  //   }else{
+  //     console.log('no')
+  //   }
+  // }
 
 render() {
   return (

@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.homepage, name="home"),
     path('api/', views.CounterListView.as_view(), name="list"),
     path('api/edit/<int:id>/', views.CounterEditView.as_view(), name="edit"),
+    path('show/<int:id>/', views.show_num, name="show"),
 ]
